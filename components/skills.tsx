@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code, BarChart2, Cloud, Brain } from "lucide-react"
-import { FadeInSection } from "./fade-in-section"
 
 export function Skills() {
   const skillCategories = [
@@ -48,41 +46,31 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <FadeInSection>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Skills & Technologies</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-          </div>
-        </FadeInSection>
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2">Skills & Technologies</h2>
+          <div className="w-20 h-1 bg-primary rounded-sm" />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
-            <FadeInSection key={index} delay={index * 100}>
-              <Card className="border-border hover:border-primary/50 transition-colors duration-300 h-full">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20">
-                      <category.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg">{category.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-3 py-1.5 text-sm bg-primary/15 text-primary border border-primary/30 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-default font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </FadeInSection>
+            <div key={index} className="space-y-4">
+              <div className="flex items-center gap-3 pb-2 border-b border-border">
+                <category.icon className="h-5 w-5 text-primary" />
+                <h3 className="text-lg font-semibold">{category.title}</h3>
+              </div>
+              <ul className="space-y-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <li
+                    key={skillIndex}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors pl-4 border-l-2 border-transparent hover:border-primary py-1"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       </div>

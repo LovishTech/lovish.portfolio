@@ -71,20 +71,18 @@ export function Contact() {
   }, [submitStatus])
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <FadeInSection>
-          <div className="text-center mb-4">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Get In Touch</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
-          </div>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty">
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2">Get In Touch</h2>
+          <div className="w-20 h-1 bg-primary rounded-sm" />
+          <p className="text-muted-foreground mt-4 max-w-2xl">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
-        </FadeInSection>
+        </div>
 
-        <FadeInSection delay={200}>
-          <Card className="border-border hover:border-primary/30 transition-colors">
+        <div className="space-y-8">
+          <Card className="border-border">
             <CardHeader>
               <CardTitle>Send me a message</CardTitle>
               <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
@@ -155,18 +153,15 @@ export function Contact() {
               </form>
             </CardContent>
           </Card>
-        </FadeInSection>
 
-        <FadeInSection delay={400}>
-          <div className="mt-12">
-            <p className="text-center text-sm text-muted-foreground mb-6">Or connect with me on</p>
-            <div className="flex justify-center gap-4">
+          <div>
+            <p className="text-sm text-muted-foreground mb-4">Or connect with me on</p>
+            <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   variant="outline"
                   size="icon"
-                  className="border-primary/40 hover:border-primary hover:bg-primary/10 text-primary hover:text-primary transition-colors bg-transparent"
                   asChild
                 >
                   <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
@@ -176,7 +171,7 @@ export function Contact() {
               ))}
             </div>
           </div>
-        </FadeInSection>
+        </div>
       </div>
     </section>
   )
