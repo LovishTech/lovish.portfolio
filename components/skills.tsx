@@ -1,29 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code2, Database, Brain, Wrench } from "lucide-react"
+import { Code, BarChart2, Cloud, Brain } from "lucide-react"
 import { FadeInSection } from "./fade-in-section"
 
 export function Skills() {
   const skillCategories = [
     {
-      icon: Brain,
-      title: "ML/AI",
-      skills: ["Scikit-learn", "NLTK", "Machine Learning", "Natural Language Processing", "Classification"],
-    },
-    {
-      icon: Code2,
+      icon: Code,
       title: "Programming",
-      skills: ["Python", "SQL"],
+      skills: ["Python", "SQL"]
     },
     {
-      icon: Database,
-      title: "Data & Visualization",
-      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Tableau", "Power BI"],
+      icon: Brain,
+      title: "AI/ML",
+      skills: [
+        "Machine Learning",
+        "Deep Learning",
+        "Neural Networks",
+        "NLP",
+        "Computer Vision",
+        "Generative AI"
+      ]
     },
     {
-      icon: Wrench,
-      title: "Tools",
-      skills: ["GitHub", "Linux"],
+      icon: BarChart2,
+      title: "Data Science",
+      skills: [
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "TensorFlow",
+        "PyTorch",
+        "Data Analysis"
+      ]
     },
+    {
+      icon: Cloud,
+      title: "Tools & Platforms",
+      skills: [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Git/GitHub",
+        "Jupyter",
+        "Google Colab"
+      ]
+    }
   ]
 
   return (

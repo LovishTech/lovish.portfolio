@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles, Code, Brain, Cpu, Database, Bot } from "lucide-react"
+import { ArrowRight, Sparkles, Cloud, Brain, Server, Database, Bot } from "lucide-react"
 import Link from "next/link"
 import { TypingAnimation } from "./typing-animation"
 import { DownloadResumeButton } from "./download-resume-button"
@@ -16,10 +16,10 @@ export function Hero() {
 
   const floatingIcons = [
     // Top and bottom edges
-    { icon: <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 10, y: 15, delay: 0, tooltip: 'Code' },
+    { icon: <Cloud className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 10, y: 15, delay: 0, tooltip: 'Cloud' },
     { icon: <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-accent/50" />, x: 90, y: 15, delay: 0.2, tooltip: 'AI/ML' },
-    { icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 20, y: 85, delay: 0.4, tooltip: 'Hardware' },
-    { icon: <Database className="w-4 h-4 sm:w-5 sm:h-5 text-accent/50" />, x: 80, y: 85, delay: 0.6, tooltip: 'Databases' },
+    { icon: <Database className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 20, y: 85, delay: 0.4, tooltip: 'Databases' },
+    { icon: <Server className="w-4 h-4 sm:w-5 sm:h-5 text-accent/50" />, x: 80, y: 85, delay: 0.6, tooltip: 'DevOps' },
     // Center but with reduced opacity and size
     { icon: <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-primary/30" />, x: 50, y: 50, delay: 0.8, tooltip: 'Automation' },
   ]
@@ -97,7 +97,7 @@ export function Hero() {
           <div className="mt-12 max-w-3xl mx-auto">
             <p className="text-sm text-muted-foreground mb-4">Tech I work with</p>
             <div className="flex flex-wrap items-center justify-center gap-6">
-              {['Python', 'TensorFlow', 'PyTorch', 'React', 'Next.js', 'Node.js', 'Docker', 'AWS'].map((tech, i) => (
+              {['Python', 'TensorFlow', 'PyTorch', 'GCP', 'Azure', 'Docker', 'Kubernetes', 'Terraform'].map((tech, i) => (
                 <div 
                   key={i} 
                   className="text-muted-foreground hover:text-foreground transition-colors duration-300"

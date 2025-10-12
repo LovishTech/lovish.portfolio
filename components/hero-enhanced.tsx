@@ -18,20 +18,37 @@ const floatingIcons = [
 ];
 
 const socialLinks = [
-  { icon: <Github className="w-5 h-5" />, href: "https://github.com/yourusername", label: "GitHub" },
-  { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-  { icon: <Mail className="w-5 h-5" />, href: "mailto:your.email@example.com", label: "Email" },
+  { icon: <Github className="w-5 h-5" />, href: "https://github.com/dashboard", label: "GitHub" },
+  { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/lovish-batra-b202122a8", label: "LinkedIn" },
+  { icon: <Mail className="w-5 h-5" />, href: "mailto:lovishbatra.2004@gmail.com", label: "Email" },
 ];
 
 const techStack = [
+  // Machine Learning & AI
+  { name: 'Machine Learning', category: 'ml' },
+  { name: 'Deep Learning', category: 'ml' },
+  { name: 'NLP', category: 'ml' },
+  { name: 'Computer Vision', category: 'ml' },
+  { name: 'Neural Networks', category: 'ml' },
+  
+  // Programming
   { name: 'Python', category: 'language' },
-  { name: 'TensorFlow', category: 'ml' },
-  { name: 'PyTorch', category: 'ml' },
-  { name: 'React', category: 'frontend' },
-  { name: 'Next.js', category: 'frontend' },
-  { name: 'Node.js', category: 'backend' },
-  { name: 'Docker', category: 'devops' },
-  { name: 'AWS', category: 'cloud' },
+  { name: 'SQL', category: 'language' },
+  
+  // Data Science
+  { name: 'Pandas', category: 'data' },
+  { name: 'NumPy', category: 'data' },
+  { name: 'Scikit-learn', category: 'data' },
+  { name: 'TensorFlow', category: 'data' },
+  { name: 'PyTorch', category: 'data' },
+  
+  // Tools & Platforms
+  { name: 'Jupyter', category: 'tools' },
+  { name: 'Google Colab', category: 'tools' },
+  { name: 'Git/GitHub', category: 'tools' },
+  { name: 'Streamlit', category: 'tools' },
+  { name: 'AWS', category: 'tools' },
+  { name: 'Azure', category: 'tools' },
 ];
 
 const containerVariants = {
@@ -164,7 +181,7 @@ export function HeroEnhanced() {
           <motion.div variants={itemVariants} className="mt-12 max-w-3xl mx-auto">
             <p className="text-sm text-foreground/70 mb-4">Tech I work with</p>
             <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-              {['all', 'language', 'ml', 'frontend', 'backend', 'devops', 'cloud'].map((category) => (
+              {['all', 'ml', 'language', 'tools'].map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
@@ -174,7 +191,12 @@ export function HeroEnhanced() {
                       : 'text-foreground/60 hover:text-foreground/80'
                   }`}
                 >
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                  {{
+                    'ml': 'ML/AI',
+                    'language': 'Programming',
+                    'tools': 'Tools',
+                    'all': 'All'
+                  }[category] || category.charAt(0).toUpperCase() + category.slice(1)}
                 </button>
               ))}
             </div>
