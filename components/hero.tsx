@@ -15,11 +15,13 @@ export function Hero() {
   }, [])
 
   const floatingIcons = [
-    { icon: <Code className="w-5 h-5 text-primary/70" />, x: 5, y: 30, delay: 0, tooltip: 'Code' },
-    { icon: <Brain className="w-5 h-5 text-accent/70" />, x: 95, y: 25, delay: 0.2, tooltip: 'AI/ML' },
-    { icon: <Cpu className="w-5 h-5 text-primary/70" />, x: 20, y: 70, delay: 0.4, tooltip: 'Hardware' },
-    { icon: <Database className="w-5 h-5 text-accent/70" />, x: 80, y: 65, delay: 0.6, tooltip: 'Databases' },
-    { icon: <Bot className="w-5 h-5 text-primary/70" />, x: 50, y: 15, delay: 0.8, tooltip: 'Automation' },
+    // Top and bottom edges
+    { icon: <Code className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 10, y: 15, delay: 0, tooltip: 'Code' },
+    { icon: <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-accent/50" />, x: 90, y: 15, delay: 0.2, tooltip: 'AI/ML' },
+    { icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-primary/50" />, x: 20, y: 85, delay: 0.4, tooltip: 'Hardware' },
+    { icon: <Database className="w-4 h-4 sm:w-5 sm:h-5 text-accent/50" />, x: 80, y: 85, delay: 0.6, tooltip: 'Databases' },
+    // Center but with reduced opacity and size
+    { icon: <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-primary/30" />, x: 50, y: 50, delay: 0.8, tooltip: 'Automation' },
   ]
 
   if (!isMounted) return null
@@ -36,13 +38,15 @@ export function Hero() {
       {floatingIcons.map((item, index) => (
         <div 
           key={index}
-          className="absolute hidden sm:block group"
+          className="absolute block group"
           style={{
             left: `${item.x}%`,
             top: `${item.y}%`,
             animation: `float 6s ease-in-out ${item.delay}s infinite`,
+            zIndex: 1,
+            pointerEvents: 'none',
           }}
-          title={item.tooltip}
+          aria-label={item.tooltip}
         >
           <div className="relative">
             {item.icon}
@@ -115,8 +119,26 @@ export function Hero() {
 
       <style jsx global>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(3deg); }
+          0%, 100% { 
+            transform: translateY(0) translateX(0) rotate(0deg); 
+            opacity: 0.7;
+          }
+          50% { 
+            transform: translateY(-5px) translateX(5px) rotate(2deg);
+            opacity: 1;
+          }
+        }
+        @media (max-width: 640px) {
+          @keyframes float {
+            0%, 100% { 
+              transform: translateY(0) translateX(0) scale(0.9);
+              opacity: 0.6;
+            }
+            50% { 
+              transform: translateY(-3px) translateX(3px) scale(0.95);
+              opacity: 0.8;
+            }
+          }
         }
       `}</style>
     </section>
