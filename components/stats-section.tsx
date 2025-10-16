@@ -1,9 +1,13 @@
+"use client"
+
+import { AnimatedCounter } from "@/components/animated-counter"
+
 export function StatsSection() {
   const stats = [
-    { value: "1+", label: "Years Experience" },
-    { value: "3+", label: "Projects Completed" },
-    { value: "10+", label: "Technologies" },
-    { value: "6+", label: "Certifications" },
+    { value: 1, label: "Years Experience", suffix: "+" },
+    { value: 3, label: "Projects Completed", suffix: "+" },
+    { value: 10, label: "Technologies", suffix: "+" },
+    { value: 6, label: "Certifications", suffix: "+" },
   ]
 
   return (
@@ -13,7 +17,11 @@ export function StatsSection() {
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                {stat.value}
+                <AnimatedCounter 
+                  end={stat.value} 
+                  duration={2000} 
+                  suffix={stat.suffix}
+                />
               </div>
               <p className="text-sm md:text-base text-muted-foreground">{stat.label}</p>
             </div>

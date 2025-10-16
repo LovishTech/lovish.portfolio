@@ -55,14 +55,14 @@ export function About() {
     <section id="about" ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <motion.div 
-          className="mb-12"
+          className="mb-12 text-center"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInUp}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-2">About Me</h2>
           <motion.div 
-            className="w-20 h-1 bg-primary rounded-sm"
+            className="w-20 h-1 bg-primary rounded-sm mx-auto"
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}

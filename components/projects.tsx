@@ -21,10 +21,10 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-2">Featured Projects</h2>
-          <div className="w-20 h-1 bg-primary rounded-sm" />
-          <p className="text-muted-foreground mt-4 max-w-2xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2">My Projects</h2>
+          <div className="w-20 h-1 bg-primary rounded-sm mx-auto" />
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             A collection of my work showcasing various technologies and problem-solving approaches.
           </p>
         </div>

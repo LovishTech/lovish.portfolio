@@ -48,9 +48,9 @@ export function Skills() {
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <div className="mb-12">
+        <div className="mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-2">Skills & Technologies</h2>
-          <div className="w-20 h-1 bg-primary rounded-sm" />
+          <div className="w-20 h-1 bg-primary rounded-sm mx-auto" />
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

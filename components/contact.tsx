@@ -73,10 +73,10 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12">
+        <div className="mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-2">Get In Touch</h2>
-          <div className="w-20 h-1 bg-primary rounded-sm" />
-          <p className="text-muted-foreground mt-4 max-w-2xl">
+          <div className="w-20 h-1 bg-primary rounded-sm mx-auto" />
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
         </div>
