@@ -20,7 +20,7 @@ export function Projects() {
       title: "AI-Powered Website Generator",
       description:
         "An AI-driven tool that generates complete landing pages from a simple text prompt. Uses a large language model to create structured content and Tailwind CSS-based layouts, with live preview and editable sections for rapid iteration.",
-      image: "/ai-website-generator.jpg",
+      image: "/machine-learning-project-visualization.png",
       tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "OpenAI API", "Prompt Engineering"],
       liveUrl: "#",
       githubUrl: "https://github.com/LovishTech/ai-website-generator",
