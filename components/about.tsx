@@ -37,7 +37,7 @@ export function About() {
     {
       icon: GraduationCap,
       title: "Education",
-      description: "Diploma in Computer Programming from Sault College (2025) - CGPA: 3.98/4.0",
+      description: "Bachelor of Computer Science from Algoma University",
     },
     {
       icon: Briefcase,

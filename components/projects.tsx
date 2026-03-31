@@ -16,6 +16,15 @@ export function Projects() {
       liveUrl: "#",
       githubUrl: "https://github.com/LovishTech/Spam_detection_model",
     },
+    {
+      title: "AI-Powered Website Generator",
+      description:
+        "An AI-driven tool that generates complete landing pages from a simple text prompt. Uses a large language model to create structured content and Tailwind CSS-based layouts, with live preview and editable sections for rapid iteration.",
+      image: "/ai-website-generator.jpg",
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "OpenAI API", "Prompt Engineering"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/LovishTech/ai-website-generator",
+    },
   ]
 
   return (

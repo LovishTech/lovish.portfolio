@@ -25,8 +25,8 @@ export function DownloadResumeButton() {
     // Simulate download time for better UX
     setTimeout(() => {
       const link = document.createElement('a');
-      link.href = '/Lovish_Batra_Resume.pdf';
-      link.download = 'Lovish_Batra_Resume.pdf';
+      link.href = '/e%20(1).pdf';
+      link.download = 'e (1).pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
