@@ -73,105 +73,115 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-2">Get In Touch</h2>
-          <div className="w-20 h-1 bg-primary rounded-sm mx-auto" />
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-        </div>
+        <FadeInSection>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-2">Get In Touch</h2>
+            <div className="w-20 h-1 bg-primary rounded-sm mx-auto" />
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+          </div>
+        </FadeInSection>
 
-        <div className="space-y-8">
-          <Card className="border-border">
-            <CardHeader>
-              <CardTitle>Send me a message</CardTitle>
-              <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
+        <FadeInSection delay={150}>
+          <div className="space-y-8">
+            <Card className="border-border">
+              <CardHeader>
+                <CardTitle>Send me a message</CardTitle>
+                <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className="focus:border-primary/50 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your.email@example.com"
+                        className="focus:border-primary/50 transition-colors"
+                        required
+                      />
+                    </div>
+                  </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input 
-                      id="name" 
-                      name="name"
-                      value={formData.name}
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="Your name" 
-                      className="focus:border-primary/50 transition-colors" 
+                      placeholder="Tell me about your project or just say hi..."
+                      rows={6}
+                      className="focus:border-primary/50 transition-colors resize-none"
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      className="focus:border-primary/50 transition-colors"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project or just say hi..."
-                    rows={6}
-                    className="focus:border-primary/50 transition-colors resize-none"
-                    required
-                  />
-                </div>
-                
-                {submitStatus === 'success' && (
-                  <div className="p-3 bg-green-100 border border-green-300 text-green-700 rounded-md">
-                    Message sent successfully! I'll get back to you soon.
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="p-3 bg-red-100 border border-red-300 text-red-700 rounded-md">
-                    Failed to send message. Please try again or contact me directly.
-                  </div>
-                )}
-                
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 transition-all disabled:opacity-50"
-                >
-                  <Send className="mr-2 h-4 w-4" />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
 
-          <div>
-            <p className="text-sm text-muted-foreground mb-4">Or connect with me on</p>
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="icon"
-                  asChild
-                >
-                  <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                    <social.icon className="h-5 w-5" />
-                  </a>
-                </Button>
-              ))}
+                  {submitStatus === 'success' && (
+                    <div
+                      role="status"
+                      className="p-3 rounded-md border bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+                    >
+                      Message sent successfully! I'll get back to you soon.
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div
+                      role="alert"
+                      className="p-3 rounded-md border bg-destructive/10 border-destructive/30 text-destructive"
+                    >
+                      Failed to send message. Please try again or contact me directly.
+                    </div>
+                  )}
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 transition-all disabled:opacity-50"
+                  >
+                    <Send className="mr-2 h-4 w-4" />
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+
+            <div>
+              <p className="text-sm text-muted-foreground mb-4">Or connect with me on</p>
+              <div className="flex gap-3">
+                {socialLinks.map((social, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                      <social.icon className="h-5 w-5" />
+                    </a>
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </FadeInSection>
       </div>
     </section>
   )
