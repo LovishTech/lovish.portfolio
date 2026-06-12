@@ -74,8 +74,6 @@ export function MLBackground() {
       driftY: (Math.random() - 0.5) * 0.00035,
     }));
 
-    const lossCurve = (t: number) => 0.18 + 0.62 * Math.exp(-3.2 * t) + 0.04 * Math.sin(t * 8);
-
     const draw = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = (timestamp - startTime) / 1000;
@@ -85,50 +83,6 @@ export function MLBackground() {
       const animate = !reducedMotionRef.current;
 
       ctx.clearRect(0, 0, w, h);
-
-      // Grid lines
-      ctx.strokeStyle = primary;
-      ctx.globalAlpha = 0.14;
-      ctx.lineWidth = 1;
-      for (let i = 1; i < 4; i++) {
-        const y = h * (0.25 + i * 0.15);
-        ctx.beginPath();
-        ctx.moveTo(w * 0.08, y);
-        ctx.lineTo(w * 0.92, y);
-        ctx.stroke();
-      }
-
-      // Animated loss curve with glow pass
-      const steps = 80;
-      const progress = animate ? (Math.sin(elapsed * 1.1) + 1) / 2 : 1;
-      const curvePoints: { x: number; y: number }[] = [];
-
-      for (let i = 0; i <= steps; i++) {
-        const t = i / steps;
-        const x = w * (0.1 + t * 0.8);
-        const decay = animate ? lossCurve(t * (0.55 + progress * 0.45)) : lossCurve(t);
-        const y = h * (0.15 + decay * 0.7);
-        curvePoints.push({ x, y });
-      }
-
-      ctx.strokeStyle = primary;
-      ctx.globalAlpha = animate ? 0.35 : 0.3;
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      curvePoints.forEach((point, i) => {
-        if (i === 0) ctx.moveTo(point.x, point.y);
-        else ctx.lineTo(point.x, point.y);
-      });
-      ctx.stroke();
-
-      ctx.globalAlpha = animate ? 0.55 : 0.45;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      curvePoints.forEach((point, i) => {
-        if (i === 0) ctx.moveTo(point.x, point.y);
-        else ctx.lineTo(point.x, point.y);
-      });
-      ctx.stroke();
 
       // Drifting data points with gentle clustering
       const positions: { x: number; y: number; alpha: number }[] = [];
